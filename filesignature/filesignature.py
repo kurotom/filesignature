@@ -322,3 +322,28 @@ class FileSignature:
         Returns results of the analysis of the given file.
         '''
         return self.file_sign_data['file_signature']
+
+    def search(
+        self,
+        extention: str,
+        only_hex: bool = False
+    ) -> dict:
+        hexsigns_list = []
+        byteoffet_list = []
+        extentions_list = []
+        for item in self.magicnumbersdata:
+            hexsigns = item.hex_signature
+            byteoffet = item.byte_offset
+            extentions = item.file_extentions
+            if extention.lower() in extentions:
+                hexsigns_list += hexsigns
+                byteoffet_list += byteoffet
+                extentions_list += extentions
+        if only_hex:
+            return {'hexsigns': list(set(hexsigns_list))}
+        else:
+            return {
+                'hexsigns': list(set(hexsigns_list)),
+                'byteoffet': list(set(byteoffet_list)),
+                'extentions': list(set(extentions_list)),
+            }
