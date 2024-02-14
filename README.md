@@ -10,7 +10,7 @@ The purpose of this project is to check that a file is valid, i.e. the extension
 > 11 byte offsets -> indicates that the first 11 bytes must be shifted to get the desired byte mark.
 >
 
-# Install
+# Install package
 
 ```bash
 pip install filesignature
