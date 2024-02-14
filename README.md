@@ -1,29 +1,36 @@
 # filesignature
 
-Tool to obtain the file type by searching the `magic numbers`.
+Tool that allows to search, extract, compare the signature of the files (`magic numbers`) and return the obtained information.
+
+The purpose of this project is to check that a file is valid, i.e. the extension and the hexadecimal signature correspond.
 
 
-# Bytes Offsets
+>
+> The "byte offset" refers to the position of a specific byte within a file or in a sequence of bytes.
+> 11 byte offsets -> indicates that the first 11 bytes must be shifted to get the desired byte mark.
+>
 
-El "byte offset" (desplazamiento en bytes) se refiere a la posición de un byte específico dentro de un archivo o en una secuencia de bytes.
+# Install
 
-11 bytes offsets -> indica que se debe desplazar los primeros 11 bytes para obtener la marca bytes deseada.
+```bash
+pip install filesignature
+```
 
 
-# Cambiar de hex a str y viceversa
+# Usage
 
 ```python
->>> x = hex(ord('P'))
->>> x
-'0x50'
->>> x.lstrip('0x')
-'50'
->>> x[2:]
-'50'
->>> bytes.fromhex(x[2:])
-b'P'
->>> bytes.fromhex(x[2:]).decode('utf-8')
-'P'
-
-int('0x120', 16)
+>>> from filesignature import FileSignature
+>>>
+>>> f = FileSignature()
+>>>
+>>> bytes_data = b'\xef\xbb\xbfhello'
+>>> print(f.check_bytes_type(raw_data=bytes_data, extention='txt'))
+('EF BB BF', '0', 'txt')
+>>>
+>>> print(f.check_file_type('file.pdf'))
+{'filename': 'file', 'file_extention': 'pdf', 'mimetype': 'application/pdf', 'file_signature': True}
+>>>
+>>> print(f.check_file_type('file.pdf', get_bool=True))
+True
 ```
