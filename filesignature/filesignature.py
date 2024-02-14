@@ -22,6 +22,7 @@ Fields of data:
 
 
 from filesignature.models import MagicNumberData
+from filesignature.collector import CollectorData
 
 import mimetypes
 import os
@@ -40,9 +41,15 @@ class FileSignature:
         Constructor
         '''
         self.file_signature_path = 'filesignature/file_signatures'
+        self.__check_file_signature_exists()
         self.magicnumbersdata = self.__get_data()
         self.file_seek = None
         self.file_sign_data = {}
+
+    def __check_file_signature_exists(self) -> None:
+        if not os.path.exists(self.file_signature_path):
+            c = CollectorData()
+            c.get(dest='filesignature')
 
     def __get_data(self) -> list:
         '''

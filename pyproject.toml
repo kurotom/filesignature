@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "filesignature"
-version = "0.1.0"
+version = "0.1.2"
 description = "File signature comparison tool, magic numbers."
 authors = ["kurotom <55354389+kurotom@users.noreply.github.com>"]
 readme = "README.md"
@@ -19,7 +19,7 @@ repository = "https://github.com/kurotom/filesignature"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-filesignaturecollectors = "^0.1.4"
+filesignaturecollectors = "^0.1.5"
 chardet = "^5.2.0"
 
 
