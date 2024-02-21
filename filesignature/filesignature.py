@@ -18,9 +18,15 @@ Fields of data:
     * hex_signature
     * byte_offset
     * file_extentions
+
+Data location:
+    * Linux: `~/.config/filesignaturecollectors`
+    * Windows: `%APPDATA%\\Roaming\\filesignaturecollectors\\`
+    * Mac: `~/Library/Application Support/filesignaturecollectors/`
+
 """
 
-
+from filesignaturecollectors.utils.store_data import get_platform
 from filesignature.models import MagicNumberData
 from filesignature.collector import CollectorData
 
@@ -40,7 +46,11 @@ class FileSignature:
         '''
         Constructor
         '''
-        self.file_signature_path = 'filesignature/file_signatures'
+        self.ROOT_DIRECTORY = get_platform()
+        self.file_signature_path = os.path.join(
+                                        self.ROOT_DIRECTORY,
+                                        'file_signatures'
+                                    )
         self.__check_file_signature_exists()
         self.magicnumbersdata = self.__get_data()
         self.file_seek = None
