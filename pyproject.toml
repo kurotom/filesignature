@@ -19,7 +19,7 @@ repository = "https://github.com/kurotom/filesignature"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-filesignaturecollectors = "^0.1.5"
+filesignaturecollectors = "^0.1.7"
 chardet = "^5.2.0"
 
 

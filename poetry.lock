@@ -144,13 +144,13 @@ files = [
 
 [[package]]
 name = "filesignaturecollectors"
-version = "0.1.5"
+version = "0.1.7"
 description = "Collects, processes and stores information on 'magic numbers'."
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "filesignaturecollectors-0.1.5-py3-none-any.whl", hash = "sha256:90c815ae575125159dc62366f5027d0c6438d4b5564f4ed6546b4d99b4fd2828"},
-    {file = "filesignaturecollectors-0.1.5.tar.gz", hash = "sha256:2d04b9acfc9280d2bf64ae6d7f3b817717edc606826f7a61b16d388762b7cd16"},
+    {file = "filesignaturecollectors-0.1.7-py3-none-any.whl", hash = "sha256:fdf2c0921b04a9570fa4945624cecd281a853f78a8f30a6af0cae09e78ef6dec"},
+    {file = "filesignaturecollectors-0.1.7.tar.gz", hash = "sha256:f7d489eb2b167a70a4a74f5a9cea82d8d0a6d93912c96252b8a95b557b15173b"},
 ]
 
 [package.dependencies]
@@ -220,4 +220,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "98b1b1542e48ec4266b0c6a74ad93b9454d611336bdc378621d4c2cd9021ab5f"
+content-hash = "d165af5a796d17b01a5e2103b1b9646c2e275eb12df480ddc3f7c1299a72ef79"
